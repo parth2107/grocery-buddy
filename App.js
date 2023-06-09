@@ -26,7 +26,7 @@ function Root() {
   return (
       <Drawer.Navigator initialRouteName="InitialScreen">
         {/* <Drawer.Screen name="InitialScreen" component={InitialScreen} /> */}
-        <Drawer.Screen name="Home" component={HomeScreen} />
+        <Drawer.Screen name="Grocery Buddy" component={HomeScreen} />
         <Drawer.Screen name="Profile" component={ProfileScreen} />
         <Drawer.Screen name="Payment Method" component={PaymentMethodScreen} />
         <Drawer.Screen name="My Groceries" component={MyGroceriesScreen} />
