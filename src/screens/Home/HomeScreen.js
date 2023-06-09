@@ -1,5 +1,6 @@
 import React, { useState } from "react";
 import { StyleSheet, Text, View, TouchableOpacity, Image } from "react-native";
+import { TextInput } from "react-native-gesture-handler";
 
 import MapView from "react-native-maps";
 
@@ -10,14 +11,22 @@ const RegistrationButton = ({ onPress, title }) => (
   </TouchableOpacity>
 );
 
-//for customizing login button:
 const LocateMeButton = ({ onPress, title }) => (
   <TouchableOpacity onPress={onPress} style={styles.btnLogin}>
     <Text style={styles.btnText}>{title}</Text>
   </TouchableOpacity>
 );
 
+const SearchButton = ({ onPress, title }) => (
+    <TouchableOpacity onPress={onPress} style={styles.btnSearch}>
+      <Text style={styles.btnText}>{title}</Text>
+    </TouchableOpacity>
+  );
+
 export default function InitialScreen({ navigation }) {
+
+    const [loading, postalCode] = useState('');
+
   const [mapRegion, setmapRegion] = useState({
     latitude: 37.78825,
     longitude: -122.4324,
@@ -41,6 +50,22 @@ export default function InitialScreen({ navigation }) {
         size="sm"
         onPress={() => navigation.navigate("Root")}
       ></LocateMeButton>
+      <Text style={{ marginTop: 15, color: 'gray', textAlign: 'center'}}>OR</Text>
+      <View style={styles.rowContainer}>
+      <TextInput
+            placeholder='Postal Code'
+            title='Postal Code'
+            value={postalCode}
+            onChangeText={text => handleChangeTextInput(text, "password")}
+            secureTextEntryStart={true}
+            style={styles.input}
+        />
+        <SearchButton
+        title="Search"
+        size="sm"
+        onPress={() => navigation.navigate("Root")}
+      ></SearchButton>
+        </View>
     </View>
   );
 }
@@ -62,9 +87,9 @@ const styles = StyleSheet.create({
     justifyContent: 'center',
     marginVertical: 20,
     borderWidth: 2,
-    // borderRadius: 25,
+    borderRadius: 25,
     borderColor: '#153759',
-
+    overflow: "hidden"
   },
   //for button
   btnRegister: {
@@ -83,16 +108,15 @@ const styles = StyleSheet.create({
     flex: 1,
     elevation: 19, //means shadow for btn
     paddingVertical: 10,
-    paddingHorizontal: 12,
+    // paddingHorizontal: 42,
     backgroundColor: "#153759",
     borderRadius: 68,
     alignItems: "center",
     justifyContent: "center",
-    marginBottom: 70,
   },
   //text in btn
   btnText: {
-    fontSize: 18,
+    fontSize: 16,
     color: "white",
     fontWeight: "400",
     alignSelf: "center",
@@ -103,4 +127,33 @@ const styles = StyleSheet.create({
     alignItems: "center",
     justifyContent: "center",
   },
+
+  input: {
+    textAlign: 'center',
+    backgroundColor: 'white',
+    paddingHorizontal: 30,
+    paddingVertical: 10,
+    borderRadius: 10,
+    borderWidth: 1,
+    borderColor: 'grey',
+    marginHorizontal: 15,
+},
+
+rowContainer: {
+    flexDirection: 'row',
+    alignItems: "center",
+    justifyContent: "center",
+    marginBottom: 70,
+    marginTop: 10,
+  },
+
+  btnSearch: {
+    elevation: 19, //means shadow for btn
+    paddingVertical: 10,
+    paddingHorizontal: 30,
+    backgroundColor: "#153759",
+    borderRadius: 68,
+    alignItems: "center",
+    justifyContent: "center",
+  }
 });

@@ -2,7 +2,7 @@ import * as React from 'react';
 import { Button, View } from 'react-native';
 import { createDrawerNavigator } from '@react-navigation/drawer';
 import { NavigationContainer } from '@react-navigation/native';
-import InitialScreen from '../grocery_buddy/src/screens/InitialScreen/InitialScreen';
+import InitialScreen from './src/screens/InitialScreen/InitialScreen';
 
 import { createStackNavigator } from '@react-navigation/stack'; //Insert screens into a stack
 import PaymentMethodScreen from './src/screens/PaymentMethod/PaymentMethodScreen';
