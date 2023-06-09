@@ -5,19 +5,13 @@ import { NavigationContainer } from '@react-navigation/native';
 import InitialScreen from '../grocery_buddy/src/screens/InitialScreen/InitialScreen';
 
 import { createStackNavigator } from '@react-navigation/stack'; //Insert screens into a stack
+import PaymentMethodScreen from './src/screens/PaymentMethod/PaymentMethodScreen';
+import DeliveryDetailsScreen from './src/screens/DeliveryDetails/DeliveryDetailsScreen';
+import ProfileScreen from './src/screens/Profile/ProfileScreen';
+import MyGroceriesScreen from './src/screens/MyGroceries/MyGroceriesScreen';
+import HomeScreen from './src/screens/Home/HomeScreen';
 
 const AuthStack = createStackNavigator();
-
-function HomeScreen({ navigation }) {
-  return (
-    <View style={{ flex: 1, alignItems: 'center', justifyContent: 'center' }}>
-      <Button
-        onPress={() => navigation.navigate('Notifications')}
-        title="Go to notifications"
-      />
-    </View>
-  );
-}
 
 function NotificationsScreen({ navigation }) {
   return (
@@ -33,9 +27,10 @@ function Root() {
       <Drawer.Navigator initialRouteName="InitialScreen">
         {/* <Drawer.Screen name="InitialScreen" component={InitialScreen} /> */}
         <Drawer.Screen name="Home" component={HomeScreen} />
-        <Drawer.Screen name="Notifications" component={NotificationsScreen} />
-        {/* <Drawer.Screen name="Notifications" component={NotificationsScreen} />
-        <Drawer.Screen name="Notifications" component={NotificationsScreen} /> */}
+        <Drawer.Screen name="Profile" component={ProfileScreen} />
+        <Drawer.Screen name="Payment Method" component={PaymentMethodScreen} />
+        <Drawer.Screen name="My Groceries" component={MyGroceriesScreen} />
+        <Drawer.Screen name="Delivery Details" component={DeliveryDetailsScreen} />
       </Drawer.Navigator>
   );
 }
