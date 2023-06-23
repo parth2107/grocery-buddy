@@ -21,19 +21,9 @@ export default function ProfileScreen() {
               <Avatar
                 size="xlarge"
                 rounded
-                title="Image"
-                avatarStyle={{
-                    borderWidth: 1,
-                    borderColor: 'green',
-                    ...Platform.select({
-                    android: {
-                        borderTopWidth: 0,
-                        borderLeftWidth: 0,
-                        borderRightWidth: 0,
-                        borderBottomWidth: 0,
-                    },
-
-                    }),
+                source={{
+                  uri:
+                    'https://www.gravatar.com/avatar/205e460b479e2e5b48aec07710c08d50',
                 }}
             />
             </View>
