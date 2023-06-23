@@ -29,7 +29,9 @@ export default function InitialScreen({ navigation }) {
                 <Text style={{ marginTop: 15, color: 'gray', fontSize: 25 }}>Grocery Buddy</Text>
             </View>
             {/* <RegistrationButton title="Register" size="sm" onPress={() => navigation.navigate('Registration')}></RegistrationButton> */}
-            <LoginButton title="Start" size="sm" onPress={() => navigation.navigate('Root')}></LoginButton>
+            {/* <LoginButton title="Start" size="sm" onPress={() => navigation.navigate('Root')}></LoginButton> */}
+            <RegistrationButton title="Register" size="sm" onPress={() => navigation.navigate('Registration')}></RegistrationButton>
+            <LoginButton title="Login" size="sm" onPress={() => navigation.navigate('Login')}></LoginButton>
         </View>
     );
 }
@@ -57,14 +59,12 @@ const styles = StyleSheet.create({
         justifyContent: 'center',
         marginBottom: 20,
     },
-    //for button
     btnLogin: {
         flex: 1,
         elevation: 19,    //means shadow for btn 
         paddingVertical: 10,
         paddingHorizontal: 12,
         backgroundColor: '#153759',
-        // backgroundColor: '#21DA8F',
         borderRadius: 68,
         alignItems: 'center',
         justifyContent: 'center',
