@@ -18,54 +18,54 @@ const LocateMeButton = ({ onPress, title }) => (
 );
 
 const SearchButton = ({ onPress, title }) => (
-    <TouchableOpacity onPress={onPress} style={styles.btnSearch}>
-      <Text style={styles.btnText}>{title}</Text>
-    </TouchableOpacity>
-  );
+  <TouchableOpacity onPress={onPress} style={styles.btnSearch}>
+    <Text style={styles.btnText}>{title}</Text>
+  </TouchableOpacity>
+);
 
 export default function InitialScreen({ navigation }) {
-
-    const [loading, postalCode] = useState('');
+  const [loading, postalCode] = useState("");
 
   const [mapRegion, setmapRegion] = useState({
-    latitude: 37.78825,
-    longitude: -122.4324,
+    latitude: 43.65107,
+    longitude: -79.347015,
     latitudeDelta: 0.0922,
     longitudeDelta: 0.0421,
   });
 
   return (
     <View style={styles.container}>
-      
-        <View style={styles.mapContainer}>
+      <View style={styles.mapContainer}>
         <MapView
           style={{ alignSelf: "stretch", height: "100%" }}
           region={mapRegion}
         />
-        </View>
-      
+      </View>
+
       {/* <RegistrationButton title="Register" size="sm" onPress={() => navigation.navigate('Registration')}></RegistrationButton> */}
       <LocateMeButton
-        title="Locate ME"
-        size="sm"
+        title='Locate ME'
+        size='sm'
         onPress={() => navigation.navigate("Root")}
       ></LocateMeButton>
-      <Text style={{ marginTop: 15, color: 'gray', textAlign: 'center'}}>OR</Text>
+      <Text style={{ marginTop: 15, color: "gray", textAlign: "center" }}>
+        OR
+      </Text>
       <View style={styles.rowContainer}>
-      <TextInput
-            placeholder='Postal Code'
-            title='Postal Code'
-            value={postalCode}
-            onChangeText={text => handleChangeTextInput(text, "password")}
-            secureTextEntryStart={true}
-            style={styles.input}
+        <TextInput
+          placeholder='Postal Code'
+          title='Postal Code'
+          value={postalCode}
+          onChangeText={(text) => handleChangeTextInput(text, "password")}
+          secureTextEntryStart={true}
+          style={styles.input}
         />
         <SearchButton
-        title="Search"
-        size="sm"
-        onPress={() => navigation.navigate("Root")}
-      ></SearchButton>
-        </View>
+          title='Search'
+          size='sm'
+          onPress={() => navigation.navigate("Root")}
+        ></SearchButton>
+      </View>
     </View>
   );
 }
@@ -84,12 +84,12 @@ const styles = StyleSheet.create({
   mapContainer: {
     flex: 20,
     alignItems: "center",
-    justifyContent: 'center',
+    justifyContent: "center",
     marginVertical: 20,
     borderWidth: 2,
     borderRadius: 25,
-    borderColor: '#153759',
-    overflow: "hidden"
+    borderColor: "#153759",
+    overflow: "hidden",
   },
   //for button
   btnRegister: {
@@ -129,18 +129,18 @@ const styles = StyleSheet.create({
   },
 
   input: {
-    textAlign: 'center',
-    backgroundColor: 'white',
+    textAlign: "center",
+    backgroundColor: "white",
     paddingHorizontal: 30,
     paddingVertical: 10,
     borderRadius: 10,
     borderWidth: 1,
-    borderColor: 'grey',
+    borderColor: "grey",
     marginHorizontal: 15,
-},
+  },
 
-rowContainer: {
-    flexDirection: 'row',
+  rowContainer: {
+    flexDirection: "row",
     alignItems: "center",
     justifyContent: "center",
     marginBottom: 70,
@@ -155,5 +155,5 @@ rowContainer: {
     borderRadius: 68,
     alignItems: "center",
     justifyContent: "center",
-  }
+  },
 });
