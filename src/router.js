@@ -49,7 +49,7 @@ function Root() {
       <Drawer.Screen name='Grocery Stores' component={GroceryStore} />
 
       <Drawer.Screen
-        name='Delivery Details'
+        name='Ride Details'
         component={DeliveryDetailsScreen}
       />
       <Drawer.Screen name='Logout' component={LogOutBtnPressed} />
